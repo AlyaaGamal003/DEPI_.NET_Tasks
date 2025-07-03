@@ -1,7 +1,5 @@
 # ERD
-
-![[Pasted image 20250703180440.png]]
-
+![alt text](ERD.png)
 # Mapping
 ## **1. Employee**
 
@@ -73,5 +71,4 @@
 
 ---
 ## **SQL MAPPING FOR TASK** 
-
-![[Pasted image 20250703190601.png]]
+![alt text](Mapping.png)
