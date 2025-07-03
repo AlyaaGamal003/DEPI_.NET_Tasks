@@ -1,5 +1,3 @@
-# ERD
-![alt text](ERD.png)
 # Mapping
 ## **1. Employee**
 
@@ -70,5 +68,3 @@
 | Hire_Date | DATE      | NOT NULL                          |
 
 ---
-## **SQL MAPPING FOR TASK** 
-![alt text](Mapping.png)
