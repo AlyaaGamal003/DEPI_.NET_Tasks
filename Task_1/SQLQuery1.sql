@@ -44,6 +44,14 @@ CREATE TABLE Dependent(
 	FOREIGN KEY (SSN) REFERENCES Employee(SSN),
 );
 
+Create Table Manage(
+    Dnum INT PRIMARY KEY,
+    SSN INT NOT NULL,
+    Hire_Date DATE NOT NULL,
+    FOREIGN KEY (Dnum) REFERENCES Department(Dnum),
+    FOREIGN KEY (SSN) REFERENCES Employee(SSN)
+);
+
 INSERT INTO Department (Dnum, Dname) VALUES
 (1, 'HR'),
 (2, 'IT'),
