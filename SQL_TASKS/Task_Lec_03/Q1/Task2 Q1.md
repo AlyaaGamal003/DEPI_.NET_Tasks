@@ -1,5 +1,3 @@
-![[Pasted image 20250709012439.png]]
-
 ### 🧍‍♂️ **Employee**
 
 |Column|Data Type|Constraints|
