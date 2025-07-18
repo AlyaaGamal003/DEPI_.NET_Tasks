@@ -130,14 +130,14 @@ FROM production.products
 DECLARE @customer_id INT = 5;
 IF EXISTS (SELECT 1 FROM sales.customers WHERE customer_id = @customer_id)
 BEGIN
-� � PRINT 'Customer found. Proceeding with order creation...';
-� � SELECT count(order_id) AS Orders_Count 
+    PRINT 'Customer found. Proceeding with order creation...';
+    SELECT count(order_id) AS Orders_Count 
     FROM sales.orders
 	WHERE customer_id=@customer_id
 END
 ELSE
 BEGIN
-� � PRINT 'Customer not found. Please create customer record first.';
+    PRINT 'Customer not found. Please create customer record first.';
 END
 GO
 ------------------------------------------------------------------------------------------------------------------------------------
@@ -175,7 +175,7 @@ RETURNS TABLE
 AS
 RETURN
 (
-� �  SELECT 
+     SELECT 
         p.product_name,
         p.list_price,
         b.brand_name,
@@ -196,25 +196,25 @@ GO
 CREATE FUNCTION dbo.GetCustomerYearlySummary(@customer_id INT)
 RETURNS @summary TABLE
 (
-� � Order_Year INT,
-� � Total_Number_of_Orders INT,
-� � Total_Amount_Spent DECIMAL(10,2),
-� � Avg_Order_Value DECIMAL(10,2)
+    Order_Year INT,
+    Total_Number_of_Orders INT,
+    Total_Amount_Spent DECIMAL(10,2),
+    Avg_Order_Value DECIMAL(10,2)
 
 )
 AS
 BEGIN
-� � INSERT INTO @summary
-� � SELECT
-� � � � YEAR(o.order_date) as Order_Year,
-� � � � COUNT(*) as Total_Number_of_Orders,
-� � � � SUM(oi.quantity * oi.list_price * (1 - oi.discount)) as Total_Amount_Spent,
-� � � � AVG(oi.quantity * oi.list_price * (1 - oi.discount)) as Avg_Order_Value
-� � FROM sales.orders o
-� � JOIN sales.order_items oi ON o.order_id = oi.order_id
-� � WHERE o.customer_id = @customer_id
-� � GROUP BY YEAR(o.order_date);
-� � RETURN;
+INSERT INTO @summary
+        SELECT
+            YEAR(o.order_date) as Order_Year,
+            COUNT(*) as Total_Number_of_Orders,
+            SUM(oi.quantity * oi.list_price * (1 - oi.discount)) as Total_Amount_Spent,
+           AVG(oi.quantity * oi.list_price * (1 - oi.discount)) as Avg_Order_Value
+    FROM sales.orders o
+    JOIN sales.order_items oi ON o.order_id = oi.order_id
+    WHERE o.customer_id = @customer_id
+    GROUP BY YEAR(o.order_date);
+    RETURN;
 END;
 GO
 SELECT * FROM dbo.GetCustomerYearlySummary(1);
@@ -255,23 +255,23 @@ SELECT dbo.CalculateBulkDiscount(3) AS Discount;
 
 GO
 CREATE PROCEDURE sp_GetCustomerOrderHistory
-� � @customer_id INT,
-� � @start_date DATE = NULL,
-� � @end_date DATE = NULL
+    @customer_id INT,
+    @start_date DATE = NULL,
+    @end_date DATE = NULL
 AS
 BEGIN
-� � SELECT
-� � � � o.order_id,
-� � � � o.order_date,
-� � � � o.order_status,
-� � � � SUM(oi.quantity * oi.list_price * (1 - oi.discount)) as order_total
-� � FROM sales.orders o
-� � JOIN sales.order_items oi ON o.order_id = oi.order_id
-� � WHERE o.customer_id = @customer_id
-� � � � AND (@start_date IS NULL OR o.order_date >= @start_date)
-� � � � AND (@end_date IS NULL OR o.order_date <= @end_date)
-� � GROUP BY o.order_id, o.order_date, o.order_status
-� � ORDER BY o.order_date DESC;
+    SELECT
+    o.order_id,
+    o.order_date,
+    o.order_status,
+    SUM(oi.quantity * oi.list_price * (1 - oi.discount)) as order_total
+    FROM sales.orders o
+    JOIN sales.order_items oi ON o.order_id = oi.order_id
+    WHERE o.customer_id = @customer_id
+        AND (@start_date IS NULL OR o.order_date >= @start_date)
+        AND (@end_date IS NULL OR o.order_date <= @end_date)
+    GROUP BY o.order_id, o.order_date, o.order_status
+    ORDER BY o.order_date DESC;
 END;
 -- Usage
 GO
