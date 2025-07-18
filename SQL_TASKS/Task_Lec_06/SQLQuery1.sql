@@ -642,8 +642,3 @@ GO
 EXEC sp_DiscontinueProduct @product_id = 101;
 EXEC sp_DiscontinueProduct @product_id = 101, @replacement_id = 205;
 
-
-
-                 
-
-
