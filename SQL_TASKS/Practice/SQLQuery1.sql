@@ -1,4 +1,4 @@
-﻿-- Practice
+-- Practice
 Select  * FROM  HumanResources.Employee
 Select  * FROM  HumanResources.EmployeeDepartmentHistory
 Select  * FROM  HumanResources.EmployeePayHistory
