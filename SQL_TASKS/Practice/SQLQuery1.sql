@@ -208,8 +208,12 @@ SELECT * FROM Sales.ProductReviews
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- 6.1 Add a column named LastModifiedDate to the Production.Product table, with a default value of the current date and time.
+ALTER TABLE Production.Product ADD LastModifiedDate Datetime DEFAULT GETDATE();
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- 6.2 Create a non-clustered index on the LastName column of the Person.Person table, including FirstName and MiddleName.
+CREATE NONCLUSTERED INDEX IX_Person_Name 
+ON Person.Person (LastName)
+INCLUDE (FirstName, MiddleName);
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- 6.3 Add a check constraint to the Production.Product table to ensure that ListPrice is greater than StandardCost.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
