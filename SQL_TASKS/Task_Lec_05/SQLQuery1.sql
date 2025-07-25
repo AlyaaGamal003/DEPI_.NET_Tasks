@@ -209,7 +209,6 @@ FROM monthly_comparison;
   FROM production.products p
   JOIN production.categories c ON p.category_id = c.category_id
 )
-
 SELECT category_name,list_price, Price_Row_Rank,Price_Rank,Price_Dense_Rank
 FROM ranked_products
 WHERE Price_Row_Rank <= 3;
