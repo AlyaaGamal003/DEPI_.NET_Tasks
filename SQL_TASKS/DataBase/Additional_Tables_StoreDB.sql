@@ -1,4 +1,5 @@
--- Customer activity log
+-- new tables
+-- Customer activity log 
 CREATE TABLE sales.customer_log (
     log_id INT IDENTITY(1,1) PRIMARY KEY,
     customer_id INT,

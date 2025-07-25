@@ -1,5 +1,4 @@
--- 1.Create a non-clustered index on the email column in the sales.customers table
--- to improve search performance when looking up customers by email.
+-- 1.Create a non-clustered index on the email column in the sales.customers table to improve search performance when looking up customers by email.
 
 CREATE NONCLUSTERED INDEX IX_Customers_Email 
 ON sales.customers (email)
