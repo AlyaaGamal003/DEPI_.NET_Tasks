@@ -56,7 +56,7 @@ namespace Task2_DEPI
                 {
                     if (value.Length != 11 || !value.StartsWith("01"))
                     { Console.WriteLine("Phone number must start with '01' and be exactly 11 digits."); }
-                    { _phoneNumber = value; }
+                    else { _phoneNumber = value; }
                        
                 }
             }
@@ -130,14 +130,14 @@ namespace Task2_DEPI
             public void ShowAccountDetails()
             {
                 Console.WriteLine("========== Account Details ==========");
-                Console.WriteLine($"{BankCode}");
-                Console.WriteLine($"{_accountNumber}");
-                Console.WriteLine($"{FullName}");
-                Console.WriteLine($"{NationalID}");
-                Console.WriteLine($"{PhoneNumber}");
-                Console.WriteLine($"{Address}");
-                Console.WriteLine($"{Balance:C}");
-                Console.WriteLine($"{CreatedDate}");
+                Console.WriteLine($"Bank Code       : {BankCode}");
+                Console.WriteLine($"Account Number  : {_accountNumber}");
+                Console.WriteLine($"Full Name       : {FullName}");
+                Console.WriteLine($"National ID     : {NationalID}");
+                Console.WriteLine($"Phone Number    : {PhoneNumber}");
+                Console.WriteLine($"Address         : {Address}");
+                Console.WriteLine($"Balance         : {Balance:C}");
+                Console.WriteLine($"Created Date    : {CreatedDate}");
                 Console.WriteLine("=====================================\n");
             }
             public bool IsValidNationalID()
@@ -151,9 +151,26 @@ namespace Task2_DEPI
         }
         static void Main(string[] args)
         {
-            BankAccount account1 = new BankAccount( 1001,"Alyaa Gamal","29905231234567", "01012345678","Cairo");
-            BankAccount account2 = new BankAccount(1002, "Maryam Tarek","30001011234567","01123456789","Alexandria",5000);
             
+            BankAccount account1 = new BankAccount(
+                accountNumber: 1001,
+                fullName: "Alyaa Gamal",
+                nationalID: "29905231234567",
+                phoneNumber: "01012345678",
+                address: "Benha"
+            );
+
+            
+            BankAccount account2 = new BankAccount(
+                accountNumber: 1002,
+                fullName: "Maryam Tarek",
+                nationalID: "30001011234567",
+                phoneNumber: "01023456789",
+                address: "Cairo",
+                balance: 5000
+            );
+
+
             account1.ShowAccountDetails();
             
             account2.ShowAccountDetails();
