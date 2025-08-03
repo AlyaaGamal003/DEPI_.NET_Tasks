@@ -142,7 +142,7 @@ namespace Task2_DEPI
             }
             public bool IsValidNationalID()
             {
-                return NationalID.Length == 14 && ulong.TryParse(NationalID, out _);
+                return NationalID.Length == 14 ;
             }
             public bool IsValidPhoneNumber()
             {
