@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
       adviceTextEl.textContent = `"${slip.advice}"`;
     } catch (error) {
       adviceIdEl.textContent = "Error";
-      adviceTextEl.textContent = "حدث خطأ في تحميل النصيحة 😢";
+      adviceTextEl.textContent = "Error in loading";
       console.error("Error fetching advice:", error);
     }
   }
