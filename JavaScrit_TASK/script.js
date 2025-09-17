@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const slip = data.slip;
       adviceTextEl.textContent = `"${slip.advice}"`;
     } catch (error) {
-      adviceTextEl.textContent = "⚠️ Error loading advice";
+      adviceTextEl.textContent = "Error loading advice";
       console.error("Error fetching advice:", error);
     }
   }
