@@ -28,7 +28,7 @@ h1 {
   position: relative;
   display: inline-block;
 }
-.advice-box {
+.advice-container {
   background: white;
   border-radius: 15px;
   padding: 30px;
@@ -40,7 +40,7 @@ h1 {
   flex-direction: column;
   justify-content: center;
 }
-.advice-id {
+.advice-number {
   color: #a913c4;
   font-size: 0.9rem;
   font-weight: 600;
@@ -55,7 +55,7 @@ h1 {
   margin-bottom: 20px;
   font-weight: 500;
 }
-.generate-btn {
+.btn {
   background-color: #a574a1;
   color: white;
   border: none;
@@ -71,7 +71,7 @@ h1 {
   justify-content: center;
   margin: 0 auto;
 }
-.generate-btn:hover {
+.btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(229, 48, 229, 0.4);
 }
