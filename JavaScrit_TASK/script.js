@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const adviceIdEl = document.querySelector(".advice-id");
   const adviceTextEl = document.querySelector(".advice-text");
-  const generateBtn = document.getElementById("generateBtn");
+  const generateBtn = document.getElementById("btn");
   async function fetchAdvice() {
     try {
       const response = await fetch("https://api.adviceslip.com/advice", {
@@ -9,12 +8,9 @@ document.addEventListener("DOMContentLoaded", () => {
       });
       const data = await response.json();
       const slip = data.slip;
-
-      adviceIdEl.textContent = `Advice #${slip.id}`;
       adviceTextEl.textContent = `"${slip.advice}"`;
     } catch (error) {
-      adviceIdEl.textContent = "Error";
-      adviceTextEl.textContent = "Error in loading";
+      adviceTextEl.textContent = "⚠️ Error loading advice";
       console.error("Error fetching advice:", error);
     }
   }
